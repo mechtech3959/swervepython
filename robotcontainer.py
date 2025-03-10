@@ -76,7 +76,7 @@ class RobotContainer:
                         self._joystick.getLeftX() * self._max_speed
                     )  # Drive left with negative X (left)
                     .with_rotational_rate(
-                        self._joystick.getRightX() * self._max_angular_rate
+                        -self._joystick.getRightX() * self._max_angular_rate
                     )  # Drive counterclockwise with negative X (left)
                 )
             )
@@ -86,7 +86,7 @@ class RobotContainer:
         self._joystick.b().whileTrue(
             self.drivetrain.apply_request(
                 lambda: self._point.with_module_direction(
-                    Rotation2d(-self._joystick.getLeftY(), self._joystick.getLeftX())
+                    Rotation2d(self._joystick.getLeftY(), self._joystick.getLeftX())
                 )
             )
         )
