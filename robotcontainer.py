@@ -70,10 +70,10 @@ class RobotContainer:
             self.drivetrain.apply_request(
                 lambda: (
                     self._drive.with_velocity_x(
-                        self._joystick.getLeftY() * self._max_speed
+                        -self._joystick.getLeftY() * self._max_speed
                     )  # Drive forward with negative Y (forward)
                     .with_velocity_y(
-                        self._joystick.getLeftX() * self._max_speed
+                        -self._joystick.getLeftX() * self._max_speed
                     )  # Drive left with negative X (left)
                     .with_rotational_rate(
                         -self._joystick.getRightX() * self._max_angular_rate
